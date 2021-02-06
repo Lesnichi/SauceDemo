@@ -1,0 +1,22 @@
+.class                  .main-body
+.class1.class2          .cc-window.cc-banner
+.class1 .class2         .nav-image .nav-image-link
+#id                     #page_wrapper
+*                       *
+element                 span
+element.class           div.cc-compliance
+element,element         div,a
+element element         body button
+element>element         div>nav
+element+element         div+div
+element1~element2       ul~div
+[attribute]             [style]
+[attribute=value]       [style = "display: block; outline: none;"]
+[attribute~=value]      [style ~= "block;"]
+[attribute|=value]      [class|=nav]
+[attribute^=value]  	a[href^="https"]
+[attribute$=value]	    div[class$="list"]
+
+//*[contains(text(),'Sauce Labs Backpack')]/../../..//button
+//*[contains(text(),'Sauce Labs Backpack')]/ancestor::div[@class='inventory_item']//button
+//*[contains(text(),'Sauce Labs Backpack')]/ancestor::div[contains(@class,'inventory_item')]//button
