@@ -13,8 +13,9 @@ public class LogInPage extends BasePage {
         super(driver);
     }
 
-    public void open() {
+    public LogInPage open() {
         driver.get("https://www.saucedemo.com/");
+        return this;
     }
 
     public void login(String userName, String password) {
