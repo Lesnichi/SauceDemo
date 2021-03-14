@@ -1,13 +1,12 @@
 package tests;
 
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
 public class LogInTest extends BaseTest {
 
-    @Test(retryAnalyzer = Retry.class)
+    @Test(retryAnalyzer = Retry.class, description = "Enter wrong password")
     public void wrongPassword() {
         logInPageFactory.open();
         logInPageFactory.login("standard_user", "123");

@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
@@ -18,19 +19,23 @@ public class ProductPage extends BasePage {
     }
 
     @Override
+    @Step ("Opening BasePage")
     public BasePage open() {
         return null;
     }
 
+    @Step("Buying product: {productName}")
     public ProductPage buyProduct(String productName) {
         driver.findElement(By.xpath(String.format(ADD_TO_CART, productName))).click();
         return new ProductPage(driver);
     }
 
+    @Step("Going to the Cart")
     public void goToCart() {
         driver.findElement(CART_BUTTON).click();
     }
 
+    @Step("Finding the Element by Name")
     public String getProductLabel() {
         return driver.findElement(PRODUCT_LABEL).getText();
     }
@@ -55,6 +60,7 @@ public class ProductPage extends BasePage {
         return isOpened;
     }
 
+    @Step("Checking opening the ProductPage")
     public void isPageOpened3() {
         try {
             wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(PRODUCT_LABEL));
