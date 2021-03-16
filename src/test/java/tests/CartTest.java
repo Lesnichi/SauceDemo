@@ -49,13 +49,14 @@ public class CartTest extends BaseTest {
         Assert.assertEquals(cartPage.getCountOfProduct(), 1, "Не удалены товары из карзины");
     }
 
-    @Test
+    @Test (retryAnalyzer = Retry.class)
     public void checkoutButtonChecking() {
         logInPage.open();
         logInPage.login("standard_user", "secret_sauce");
         productPage.buyProduct("Sauce Labs Bolt T-Shirt");
         productPage.goToCart();
         cartPage.goToCheckout();
+        checkOutPage.isCheckOutPageOpened();
         Assert.assertEquals(checkOutPage.getCheckOutLabel(), "Checkout: Your Information", "Кнопка CHECKOUT не сработала");
     }
 }

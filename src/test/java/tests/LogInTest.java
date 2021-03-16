@@ -6,20 +6,21 @@ import static org.testng.Assert.assertEquals;
 
 public class LogInTest extends BaseTest {
 
-    @Test
+    @Test(retryAnalyzer = Retry.class, description = "Enter wrong password")
     public void wrongPassword() {
-        logInPage.open();
-        logInPage.login("standard_user", "123");
-        assertEquals(logInPage.getErrorMassage(),
+        logInPageFactory.open();
+        logInPageFactory.login("standard_user", "123");
+        productPage.isPageOpened3();
+        assertEquals(logInPageFactory.getErrorMassage(),
                 "Epic sadface: Username and password do not match any user in this service",
                 "Error massage is not correct");
     }
 
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void emptyUserName() {
-        logInPage.open();
-        logInPage.login("", "");
-        assertEquals(logInPage.getErrorMassage(),
+        logInPageFactory.open();
+        logInPageFactory.login("", "");
+        assertEquals(logInPageFactory.getErrorMassage(),
                 "Epic sadface: Username is required",
                 "Error massage is not correct");
     }

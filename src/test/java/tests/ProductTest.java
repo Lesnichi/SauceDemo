@@ -1,14 +1,17 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class ProductTest extends BaseTest {
 
-    @Test
+    @Test (retryAnalyzer = Retry.class)
     public void productShouldBeAvailableInCart() {
-        logInPage.open();
-        logInPage.login("standard_user", "secret_sauce");
-        productPage.buyProduct("Sauce Labs Bolt T-Shirt");
-        productPage.buyProduct("Sauce Labs Fleece Jacket");
+        logInPageFluent
+                .open()
+                .login("standard_user", "secret_sauce")
+                .buyProduct("Sauce Labs Bolt T-Shirt")
+                .buyProduct("Sauce Labs Fleece Jacket");
+        Assert.assertEquals(cartPage.getCountOfProduct(), 2, "В корзине не 2 товара");
     }
 }

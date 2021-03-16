@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 
 public class PurchaseTest {
 
-    @Test
+    @Test (retryAnalyzer = Retry.class)
     public void purchasingShouldBeSuccessful() {
 
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
