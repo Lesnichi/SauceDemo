@@ -15,8 +15,8 @@ public class BaseTest {
 
     WebDriver driver;
     LogInPage logInPage;
-    LogInPageFactory logInPageFactory;
-    LogInPageFluent logInPageFluent;
+//    LogInPageFactory logInPageFactory;
+//    LogInPageFluent logInPageFluent;
     ProductPage productPage;
     CartPage cartPage;
     CheckOutPage checkOutPage;
