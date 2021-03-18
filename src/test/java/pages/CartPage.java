@@ -6,6 +6,14 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 public class CartPage extends BasePage {
+
+    public static final By CONTINUE_SHOPPING_BUTTON = By.cssSelector(".cart_footer .btn_secondary");
+    public static final By CHECKOUT_BUTTON = By.cssSelector(".btn_action.checkout_button");
+    public static final By MENU_BUTTON = By.cssSelector(".bm-burger-button");
+    public static final By COUNTER_PRODUCT = By.cssSelector(".shopping_cart_badge");
+    public static final String REMOVE_BUTTON = "//*[contains(text(),'%s')]/ancestor::div[@class='cart_item_label']//button";
+
+
     public CartPage(WebDriver driver) {
         super(driver);
     }
@@ -21,11 +29,6 @@ public class CartPage extends BasePage {
         driver.findElement(CHECKOUT_BUTTON).click();
     }
 
-    public static final By CONTINUE_SHOPPING_BUTTON = By.cssSelector(".cart_footer .btn_secondary");
-    public static final By CHECKOUT_BUTTON = By.cssSelector(".btn_action.checkout_button");
-    public static final By MENU_BUTTON = By.cssSelector(".bm-burger-button");
-    public static final By COUNTER_PRODUCT = By.cssSelector(".shopping_cart_badge");
-    public static final String REMOVE_BUTTON = "//*[contains(text(),'%s')]/ancestor::div[@class='cart_item_label']//button";
 
     public void removeProductFromCart(String productName) {
         driver.findElement(By.xpath(String.format(REMOVE_BUTTON, productName))).click();

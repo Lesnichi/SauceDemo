@@ -20,6 +20,8 @@ public class BaseTest {
     ProductPage productPage;
     CartPage cartPage;
     CheckOutPage checkOutPage;
+    String userNameOK = "standard_user";
+    String passwordOK = "secret_sauce";
 
     @BeforeMethod
     public void setup(ITestContext context) {
@@ -29,8 +31,8 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
         logInPage = new LogInPage(driver);
-        logInPageFactory = new LogInPageFactory(driver);
-        logInPageFluent = new LogInPageFluent(driver);
+//        logInPageFactory = new LogInPageFactory(driver);
+//        logInPageFluent = new LogInPageFluent(driver);
         productPage = new ProductPage(driver);
         cartPage = new CartPage(driver);
         checkOutPage = new CheckOutPage(driver);

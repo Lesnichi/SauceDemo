@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class PurchaseTest {
+public class PurchaseTest extends BaseTest {
 
     @Test (retryAnalyzer = Retry.class)
     public void purchasingShouldBeSuccessful() {
@@ -20,9 +20,9 @@ public class PurchaseTest {
         browser.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         browser.get("https://www.saucedemo.com/");
         WebElement inputElementUsername = browser.findElement(By.id("user-name"));
-        inputElementUsername.sendKeys("standard_user");
+        inputElementUsername.sendKeys(userNameOK);
         WebElement inputElementPassword = browser.findElement(By.id("password"));
-        inputElementPassword.sendKeys("secret_sauce");
+        inputElementPassword.sendKeys(passwordOK);
         WebElement buttonLogin = browser.findElement(By.id("login-button"));
         buttonLogin.click();
         WebElement buttonAddToCart1 = browser.findElement(By.xpath("" +

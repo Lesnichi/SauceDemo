@@ -9,7 +9,7 @@ public class LogInTest extends BaseTest {
     @Test(retryAnalyzer = Retry.class, description = "Enter wrong password")
     public void wrongPassword() {
         logInPageFactory.open();
-        logInPageFactory.login("standard_user", "123");
+        logInPageFactory.login(userNameOK, "123");
         productPage.isPageOpened3();
         assertEquals(logInPageFactory.getErrorMassage(),
                 "Epic sadface: Username and password do not match any user in this service",

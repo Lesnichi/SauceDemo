@@ -29,7 +29,7 @@ public class CartTest extends BaseTest {
     @Test
     public void backToProductPage() {
         logInPage.open();
-        logInPage.login("standard_user", "secret_sauce");
+        logInPage.login(userNameOK, passwordOK);
         productPage.buyProduct("Sauce Labs Bolt T-Shirt");
         productPage.buyProduct("Sauce Labs Fleece Jacket");
         productPage.goToCart();
