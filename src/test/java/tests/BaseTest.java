@@ -15,14 +15,12 @@ public class BaseTest {
 
     WebDriver driver;
     LogInPage logInPage;
-//    LogInPageFactory logInPageFactory;
-//    LogInPageFluent logInPageFluent;
     ProductPage productPage;
     CartPage cartPage;
     CheckOutPage checkOutPage;
     String userNameOK = "standard_user";
     String passwordOK = "secret_sauce";
-
+    
     @BeforeMethod
     public void setup(ITestContext context) {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/webdrivers/chromedriver");
@@ -31,8 +29,6 @@ public class BaseTest {
         driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
         context.setAttribute("driver", driver);
         logInPage = new LogInPage(driver);
-//        logInPageFactory = new LogInPageFactory(driver);
-//        logInPageFluent = new LogInPageFluent(driver);
         productPage = new ProductPage(driver);
         cartPage = new CartPage(driver);
         checkOutPage = new CheckOutPage(driver);

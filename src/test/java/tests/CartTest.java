@@ -2,8 +2,11 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
 
 public class CartTest extends BaseTest {
+
+
 
     @Test
     public void checkAddedTwoProducts() {
