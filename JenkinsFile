@@ -20,7 +20,7 @@ pipeline {
                    git branch: "${params.BRANCH}", url: 'https://github.com/dzmitryrak/AllureReporting.git'
 
                 // Run Maven on a Unix agent.
-                sh "mvn -Dmaven.test.failure.ignore=true clean package -Dbroweser=${params.BRANCH}"
+                sh "mvn -Dmaven.test.failure.ignore=true clean package -Dbrowser=${params.BRANCH}"
 
                 // To run Maven on a Windows agent, use
             }
